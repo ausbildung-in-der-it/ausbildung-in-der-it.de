@@ -23,8 +23,10 @@ export default function RootLayout({
     <html lang="de">
       <body className={cn(inter.className, "bg-[#F2F0EF]")}>
         <ScrollObserver />
+        
+        <MainNav />
+
         <Container>
-          <MainNav />
           <main>{children}</main>
         </Container>
         <Footer />

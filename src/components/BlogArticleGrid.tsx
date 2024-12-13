@@ -14,7 +14,7 @@ const articles = [
 
 export default function BlogArticleGrid() {
     return (
-        <div className={"grid grid-cols-3 gap-3"}>
+        <div className={"grid grid-cols-1 lg:grid-cols-3 gap-3"}>
             {articles.map(article => (
                 <article className={"bg-white rounded border p-6"} key={article.title}>
                     <h4 className={"text-lg font-semibold tracking-tight"}>{article.title}</h4>
