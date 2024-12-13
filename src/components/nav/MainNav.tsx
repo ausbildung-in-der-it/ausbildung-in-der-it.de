@@ -34,10 +34,10 @@ export function MainNav() {
 
     return (
         <header className="sticky top-0 z-50 w-full bg-[#F2F0EF]">
-            <div className="h-[56px] pt-4">
-                <div className="transform-gpu transition-transform duration-200 ease-out [.scroll-down_&]:-translate-y-4">
+            <div className="h-[56px] lg:pt-4">
+                <div className="transform-gpu transition-transform duration-200 ease-out lg:[.scroll-down_&]:-translate-y-4">
                     <nav 
-                        className="relative w-full px-4 bg-[#111414] transition-[border-radius] duration-200 ease-out rounded-lg [.scroll-down_&]:rounded-none"
+                        className="relative w-full pl-4 lg:px-4 bg-[#111414] transition-[border-radius] duration-200 ease-out lg:rounded-lg lg:[.scroll-down_&]:rounded-none"
                         ref={navRef}
                     >
                         <div className="flex items-center justify-between h-14">

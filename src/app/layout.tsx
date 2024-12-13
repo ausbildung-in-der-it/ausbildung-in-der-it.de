@@ -24,7 +24,9 @@ export default function RootLayout({
       <body className={cn(inter.className, "bg-[#F2F0EF]")}>
         <ScrollObserver />
         
-        <MainNav />
+        <Container className="px-0 sm:px-6 lg:px-8 sticky top-0 z-50">
+          <MainNav />
+        </Container>
 
         <Container>
           <main>{children}</main>
