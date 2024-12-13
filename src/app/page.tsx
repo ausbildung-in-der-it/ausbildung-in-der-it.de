@@ -10,12 +10,12 @@ import { Heading } from "@/components/ui/typography"
 export default function Home() {
     return (
         <>
-            <div className={"bg-white mt-8 rounded-lg border-2 overflow-hidden"}>
+            <div className={"bg-white mt-4 lg:mt-8 rounded-lg border-2 overflow-hidden"}>
                 <div className="p-8 lg:p-16">
                     <Heading level={1} variant="hero">
                         Dein Informationsportal für die IT-Ausbildung.
                     </Heading>
-                    <p className="lg:px-32 text-lg lg:text-xl font-normal leading-7 text-center mt-3">
+                    <p className="lg:px-32 text-base lg:text-xl font-normal leading-7 text-center mt-3 break-words hyphens-auto">
                         Willkommen bei Ausbildung in der IT, deine Anlaufstelle für die duale Ausbildung der IT-Berufe in Deutschland. 
                         Egal ob mittendrin, weit in der Zukunft geplant oder längst abgeschlossen: hier findest du, was du brauchst.
                     </p>
@@ -52,17 +52,17 @@ export default function Home() {
                 />
                 <ImageTile 
                     title="IT-Systemelektroniker"
-                    href="/berufe/it-systemelektroniker"
+                    href="/it-systemelektroniker"
                     imageUrl="https://images.unsplash.com/photo-1642980701123-09a5a63ce1b9?q=80&w=2606&auto=format&fit=crop&ixlib=rb-4.0.3"
                 />
                 <ImageTile 
                     title="Kaufleute für IT-System-Management"
-                    href="/berufe/kaufleute-it-system-management"
+                    href="/kaufleute-fuer-it-system-management"
                     imageUrl="https://images.unsplash.com/photo-1532622785990-d2c36a76f5a6?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3"
                 />
                 <ImageTile 
                     title="Kaufleute für Digitalisierungsmanagement"
-                    href="/berufe/kaufleute-digitalisierungsmanagement"
+                    href="/kaufleute-fuer-digitalisierungsmanagement"
                     imageUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3"
                 />
             </div>
@@ -84,7 +84,7 @@ export default function Home() {
                 />
                 <ActionTile 
                     href="/pruefung/ap1-alt" 
-                    title="AP Teil 1"
+                    title="Termine"
                 />
             </div>
 

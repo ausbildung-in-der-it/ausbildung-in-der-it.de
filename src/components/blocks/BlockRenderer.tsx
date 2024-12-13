@@ -19,7 +19,7 @@ interface BlockRendererProps {
 
 export default function BlockRenderer({ blocks }: BlockRendererProps) {
   return (
-    <div className="space-y-6">
+    <div>
       {blocks.map((block) => {
         if (block.isHidden) return null;
 

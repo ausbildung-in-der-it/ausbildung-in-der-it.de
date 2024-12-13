@@ -1,7 +1,6 @@
 import { TextBlock } from './types';
+import parse from 'html-react-parser';
 
 export default function TextBlockComponent({ block }: { block: TextBlock }) {
-  return (
-    <div className="prose prose-slate max-w-none" dangerouslySetInnerHTML={{ __html: block.content.text }} />
-  );
+  return parse(block.content.text);
 } 

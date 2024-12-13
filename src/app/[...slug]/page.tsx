@@ -65,9 +65,14 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     const blocks: BaseBlock[] = data.content.blocks ? JSON.parse(data.content.blocks) : [];
 
     return (
-        <main className={"pt-16"}>
-            <div className={"grid grid-cols-6 mt-3 gap-3"}>
-                <div className="col-span-4 bg-white border rounded p-3">
+        <main className={"pt-8"}>
+
+            <div className={"bg-white p-6 rounded border"}>
+                <h1 className={"tracking-tight text-4xl font-bold"}>{data.content.title}</h1>
+            </div>
+
+            <div className={"mt-3 gap-3"}>
+                <div className="mx-auto col-span-4 prose prose-p:leading-relaxed prose-h2:mb-0 pl-6 text-black text-balance prose-lg">
                     <BlockRenderer blocks={blocks} />
                 </div>
                 <div className="col-span-2 space-y-3">
