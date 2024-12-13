@@ -2,8 +2,9 @@ import Link from "next/link";
 import {Input} from "@/components/ui/input";
 import {ArrowRight, ChevronRight} from "lucide-react";
 import { NavigationTile } from "@/components/ui/navigation-tile"
-import ImageGrid from "@/components/ImageGrid";
+import { ImageTile } from "@/components/ui/image-tile";
 import BlogArticleGrid from "@/components/BlogArticleGrid";
+import { ActionTile } from "@/components/ui/action-tile"
 
 export default function Home() {
     return (
@@ -41,51 +42,48 @@ export default function Home() {
 
 
             <h2 className={"mt-16 mb-3 text-4xl font-extrabold font-mono"}>IT-Berufe</h2>
-            <ImageGrid/>
-
-
-            {/* <div className="grid grid-cols-3 gap-3 mt-3">
-                <div className={"bg-[#AA8F62] rounded pl-1 pb-1 pr-6 pt-6"}>
-                    <div className={"text-white text-3xl tracking-tight font-bold"}>
-                        Über die Ausbildung informieren
-                    </div>
-                </div>
-                <Link href={"#"} className="h-full">
-                    <div
-                        className={"bg-[#AA8F62] border-[#947d56] border-2 rounded pl-1 pb-1 pr-6 pt-6 flex justify-start items-end h-full"}>
-                        <div className={"text-white text-3xl tracking-tight font-bold"}>
-                            Prüfungsvorbereitung
-                        </div>
-                    </div>
-                </Link>
-                <Link href={"#"} className="h-full">
-                    <div
-                        className={"bg-[#AA8F62] border-[#947d56] hover:bg-[#947D56] transition border-2 rounded pl-1 pb-1 pr-6 pt-6 flex justify-start items-end h-full"}>
-                        <div className={"text-white text-3xl tracking-tight font-bold"}>
-                            Nach der Ausbildung
-                        </div>
-                    </div>
-                </Link>
-            </div> */}
+            <div className="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-3 lg:mx-0 lg:max-w-none lg:grid-cols-4 hyphens-auto break-words">
+                <ImageTile 
+                    title="Fachinformatiker"
+                    href="/fachinformatiker"
+                    imageUrl="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                />
+                <ImageTile 
+                    title="IT-Systemelektroniker"
+                    href="/berufe/it-systemelektroniker"
+                    imageUrl="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+                />
+                <ImageTile 
+                    title="Kaufleute für IT-System-Management"
+                    href="/berufe/kaufleute-it-system-management"
+                    imageUrl="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+                />
+                <ImageTile 
+                    title="Kaufleute für Digitalisierungsmanagement"
+                    href="/berufe/kaufleute-digitalisierungsmanagement"
+                    imageUrl="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+                />
+            </div>
 
             <h2 className={"mt-16 mb-3 text-4xl font-extrabold font-mono"}>Prüfungsvorbereitung</h2>
 
             <div className="grid grid-cols-4 gap-3">
-                <div className={"rounded-lg flex items-end shadow bg-zinc-700 text-zinc-100 px-3 pb-3 pt-12 group"}>
-                    <div className={"flex items-center justify-between w-full"}>
-                        <h3 className={"text-2xl font-bold tracking-tight m-0"}>AP Teil 1</h3>
-                        <ChevronRight className={"w-8 h-8 font-bold group-hover:translate-x-2 transition"}/>
-                    </div>
-                </div>
-                <div className={"rounded-lg border-2 bg-zinc-700 text-zinc-100 p-6 pt-12"}>
-                    <h3 className={"text-2xl font-bold tracking-tight"}>AP Teil 2</h3>
-                </div>
-                <div className={"rounded-lg border-2 bg-zinc-700 text-zinc-100 p-6 pt-12"}>
-                    <h3 className={"text-2xl font-bold tracking-tight"}>Projektarbeit</h3>
-                </div>
-                <div className={"rounded-lg border-2 bg-zinc-700 text-zinc-100 p-6 pt-12"}>
-                    <h3 className={"text-2xl font-bold tracking-tight"}>AP Teil 1</h3>
-                </div>
+                <ActionTile 
+                    href="/pruefung/ap1" 
+                    title="AP Teil 1"
+                />
+                <ActionTile 
+                    href="/pruefung/ap2" 
+                    title="AP Teil 2"
+                />
+                <ActionTile 
+                    href="/pruefung/projektarbeit" 
+                    title="Projektarbeit"
+                />
+                <ActionTile 
+                    href="/pruefung/ap1-alt" 
+                    title="AP Teil 1"
+                />
             </div>
 
             <h2 className={"mt-16 mb-3 text-4xl font-extrabold font-mono"}>Neueste Blogartikel</h2>

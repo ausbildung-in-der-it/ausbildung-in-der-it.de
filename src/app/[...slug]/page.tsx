@@ -21,7 +21,7 @@ async function getPageData(slugParts: string[]): Promise<PageData | null> {
     const path = slugParts.join('/');
     const res = await fetch(`http://localhost:8000/api/page?path=${path}`, {
         headers: {
-            "Authorization": `Basic ${btoa("noel@lang-technology.de:test")}`,
+            "Authorization": `Basic ${btoa("api@ausbildung-in-der-it.de:test1234")}`
         },
         // Optional: ISR/On-Demand Revalidation durch `revalidate`-Option ermöglichen
         next: { revalidate: 60 }
@@ -38,7 +38,7 @@ async function getPageData(slugParts: string[]): Promise<PageData | null> {
 export async function generateStaticParams() {
     const res = await fetch('http://localhost:8000/api/all-pages', {
         headers: {
-            "Authorization": `Basic ${btoa("noel@lang-technology.de:test")}`,
+            "Authorization": `Basic ${btoa("api@ausbildung-in-der-it.de:test1234")}`,
         }
     });
 
@@ -66,21 +66,11 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
     return (
         <main className={"pt-16"}>
-            <h1 className={"text-4xl font-bold tracking-tight"}>{data.content.title}</h1>
             <div className={"grid grid-cols-6 mt-3 gap-3"}>
                 <div className="col-span-4 bg-white border rounded p-3">
                     <BlockRenderer blocks={blocks} />
                 </div>
                 <div className="col-span-2 space-y-3">
-                    <div className="bg-white border rounded p-3">
-                        <p>dsfdsafsadfdas nicht sticky</p>
-                        <p>dsfdsafsadfdas nicht sticky</p>
-                        <p>dsfdsafsadfdas nicht sticky</p>
-                        <p>dsfdsafsadfdas nicht sticky</p>
-                        <p>dsfdsafsadfdas nicht sticky</p>
-                        <p>dsfdsafsadfdas nicht sticky</p>
-                        <p>dsfdsafsadfdas nicht sticky</p>
-                    </div>
                     <div className="bg-white border rounded p-3 sticky top-16">
                         <h2 className={"text-lg font-bold tracking-tight mb-2"}>Inhaltsverzeichnis</h2>
                         <TableOfContents blocks={blocks} />
