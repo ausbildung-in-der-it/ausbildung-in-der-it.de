@@ -67,12 +67,21 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     return (
         <main className={"pt-8"}>
 
-            <div className={"bg-white p-6 rounded border"}>
+            {/* <div className={"bg-white p-6 rounded border"}>
                 <h1 className={"tracking-tight text-4xl font-bold"}>{data.content.title}</h1>
+            </div> */}
+
+            <div className={"max-w-[65ch] mx-auto text-lg mt-12"}>
+                <div className={"flex items-center justify-start text-base mb-3"}>
+                    <span className={"pr-3 leading-none"}>14. Dezember 2024</span>
+                    <span className={"border-l leading-none border-black pl-3"}>2 Minuten Lesezeit</span>
+                </div>
+                <h1 className={"text-4xl font-bold tracking-tight"}>{data.content.title}</h1>
             </div>
 
             <div className={"mt-3 gap-3"}>
-                <div className="mx-auto col-span-4 prose prose-p:leading-relaxed prose-h2:mb-0 pl-6 text-black text-balance prose-lg">
+                <div lang={"de"}
+                     className="mx-auto col-span-4 prose prose-p:leading-relaxed prose-h2:mb-0 text-black prose-lg break-words hyphens-auto">
                     <BlockRenderer blocks={blocks} />
                 </div>
                 <div className="col-span-2 space-y-3">

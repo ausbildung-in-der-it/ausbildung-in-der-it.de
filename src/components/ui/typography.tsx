@@ -13,7 +13,7 @@ interface TypographyHeadingProps {
 const variantStyles: Record<HeadingVariant, string> = {
   default: "font-bold tracking-tight",
   hero: "text-2xl lg:text-4xl tracking-tight text-center font-bold",
-  section: "text-2xl lg:text-4xl font-extrabold font-mono"
+  section: "text-2xl lg:text-4xl font-extrabold tracking-tight"
 }
 
 const levelDefaultStyles: Record<HeadingLevel, string> = {
