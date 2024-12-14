@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import BlockRenderer from '@/components/blocks/BlockRenderer';
-import TableOfContents from '@/components/blocks/TableOfContents';
 import { BaseBlock } from '@/components/blocks/types';
+import LayoutRenderer from '@/components/layouts/LayoutRenderer';
+import { LayoutType } from '@/components/layouts/types';
 
 // Typen für die API-Daten
 interface PageData {
@@ -13,8 +14,10 @@ interface PageData {
         text: string;
         blocks: string;
         uuid: string;
+        layout: "article" | "overview";
     };
     children: string[];
+    layout?: LayoutType;
 }
 
 async function getPageData(slugParts: string[]): Promise<PageData | null> {
@@ -65,32 +68,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     const blocks: BaseBlock[] = data.content.blocks ? JSON.parse(data.content.blocks) : [];
 
     return (
-        <main className={"pt-8"}>
-
-            {/* <div className={"bg-white p-6 rounded border"}>
-                <h1 className={"tracking-tight text-4xl font-bold"}>{data.content.title}</h1>
-            </div> */}
-
-            <div className={"max-w-[65ch] mx-auto text-lg mt-12"}>
-                <div className={"flex items-center justify-start text-base mb-3"}>
-                    <span className={"pr-3 leading-none"}>14. Dezember 2024</span>
-                    <span className={"border-l leading-none border-black pl-3"}>2 Minuten Lesezeit</span>
-                </div>
-                <h1 className={"text-4xl font-bold tracking-tight"}>{data.content.title}</h1>
-            </div>
-
-            <div className={"mt-3 gap-3"}>
-                <div lang={"de"}
-                     className="mx-auto col-span-4 prose prose-p:leading-relaxed prose-h2:mb-0 text-black prose-lg break-words hyphens-auto">
-                    <BlockRenderer blocks={blocks} />
-                </div>
-                <div className="col-span-2 space-y-3">
-                    <div className="bg-white border rounded p-3 sticky top-16">
-                        <h2 className={"text-lg font-bold tracking-tight mb-2"}>Inhaltsverzeichnis</h2>
-                        <TableOfContents blocks={blocks} />
-                    </div>
-                </div>
-            </div>
-        </main>
+        <LayoutRenderer 
+            layout={data.content.layout}
+            title={data.content.title}
+            blocks={blocks}
+        >
+            <BlockRenderer blocks={blocks} />
+        </LayoutRenderer>
     );
 }
