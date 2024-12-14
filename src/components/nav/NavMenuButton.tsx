@@ -5,7 +5,7 @@ interface NavMenuButtonProps {
     title: string;
     isOpen: boolean;
     menuId: string;
-    onClick: () => void;
+    onClick?: () => void; //optional
 }
 
 export function NavMenuButton({title, isOpen, menuId, onClick}: NavMenuButtonProps) {
@@ -18,11 +18,12 @@ export function NavMenuButton({title, isOpen, menuId, onClick}: NavMenuButtonPro
                 "rounded-md border border-transparent transition-colors",
                 "hover:underline"
             )}
-            onClick={onClick}
+            {...(onClick && { onClick })}  
             aria-expanded={isOpen}
             aria-controls={menuId}
             aria-haspopup="true"
             role="menuitem"
+            
         >
             {title}
             <ChevronDown
