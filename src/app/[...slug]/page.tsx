@@ -64,6 +64,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         notFound();
     }
 
+    console.log(data);
+
     // Parse the content string into blocks
     const blocks: BaseBlock[] = data.content.blocks ? JSON.parse(data.content.blocks) : [];
 

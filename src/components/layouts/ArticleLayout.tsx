@@ -1,5 +1,6 @@
 import { LayoutProps } from './types';
 import TableOfContents from '@/components/blocks/TableOfContents';
+import {Heading} from "@/components/ui/typography";
 
 export default function ArticleLayout({ children, title, blocks, date = '14. Dezember 2024', readingTime = '2 Minuten Lesezeit' }: LayoutProps) {
     return (
@@ -9,7 +10,7 @@ export default function ArticleLayout({ children, title, blocks, date = '14. Dez
                     <span className={"pr-3 leading-none"}>{date}</span>
                     <span className={"border-l leading-none border-black pl-3"}>{readingTime}</span>
                 </div>
-                <h1 className={"text-2xl lg:text-4xl font-bold tracking-tight"}>{title}</h1>
+                <Heading level={1}>{title}</Heading>
             </div>
 
             <div className={"lg:mt-3 gap-3"}>

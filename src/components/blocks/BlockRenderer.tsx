@@ -1,16 +1,20 @@
 import { lazy, Suspense } from 'react';
 import { BaseBlock, BlockRegistry } from './types';
+import VideoBlock from "./VideoBlock";
 
 // Lazy load block components
 const TextBlock = lazy(() => import('./TextBlock'));
 const CodeBlock = lazy(() => import('./CodeBlock'));
 const HeadingBlock = lazy(() => import('./HeadingBlock'));
+const CardsBlock = lazy(() => import('./CardsBlock'));
 
 // Registry of available blocks
 const blockRegistry: BlockRegistry = {
   text: TextBlock,
   code: CodeBlock,
   heading: HeadingBlock,
+  cards: CardsBlock,
+  video: VideoBlock,
 };
 
 interface BlockRendererProps {

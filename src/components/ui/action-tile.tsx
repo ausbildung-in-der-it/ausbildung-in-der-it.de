@@ -21,7 +21,7 @@ export function ActionTile({
         className
       )}
     >
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-end justify-between w-full">
         <h3 className="text-2xl font-bold tracking-tight m-0">{title}</h3>
         <ChevronRight className="w-6 h-6 font-bold group-hover:translate-x-2 transition-transform" />
       </div>
