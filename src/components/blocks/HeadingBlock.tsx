@@ -1,5 +1,6 @@
 import { HeadingBlock } from './types';
 import { cn } from '@/lib/utils';
+import { decode } from 'html-entities';
 
 const headingStyles = {
   h1: 'scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl',
@@ -26,7 +27,7 @@ export default function HeadingBlockComponent({ block }: { block: HeadingBlock }
         'mt-8 mb-4 first:mt-0'
       )}
     >
-      {text}
+      {decode(text)}
     </Component>
   );
 } 
