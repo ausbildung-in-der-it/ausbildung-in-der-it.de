@@ -27,6 +27,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             layout={data.content.layout}
             title={data.content.title}
             blocks={blocks}
+            lastModified={data.lastModified}
         >
             <BlockRenderer blocks={blocks} />
         </LayoutRenderer>

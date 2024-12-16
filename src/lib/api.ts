@@ -23,6 +23,7 @@ export interface PageData {
     title: string;
     slug: string;
     breadcrumb: string[];
+    lastModified: string;
     content: {
         title: string;
         text: string;

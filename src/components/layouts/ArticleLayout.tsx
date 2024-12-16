@@ -2,6 +2,8 @@ import { LayoutProps } from './types';
 import TableOfContents from '@/components/blocks/TableOfContents';
 import { Heading } from "@/components/ui/typography";
 import { BaseBlock } from '@/components/blocks/types';
+import { cn } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 
 const WORDS_PER_MINUTE = 200;
 
@@ -25,16 +27,20 @@ export default function ArticleLayout({
     children, 
     title, 
     blocks, 
-    date = '14. Dezember 2024'
+    lastModified
 }: LayoutProps) {
     const readingTime = calculateReadingTime(blocks);
+    const formattedDate = lastModified ? formatDate(lastModified) : undefined;
 
     return (
         <main className={"lg:pt-8"}>
             <div className={"max-w-[65ch] mx-auto text-lg mt-8 lg:mt-12"}>
                 <div className={"flex items-center justify-start text-base mb-3"}>
-                    <span className={"pr-3 leading-none"}>{date}</span>
-                    <span className={"border-l leading-none border-black pl-3"}>{readingTime}</span>
+                    {formattedDate && <span className={"pr-3 leading-none"}>Zuletzt aktualisiert am {formattedDate}</span>}
+                    <span className={cn(
+                        "leading-none",
+                        formattedDate && "border-l border-black pl-3"
+                    )}>{readingTime}</span>
                 </div>
                 <Heading level={1}>{title}</Heading>
             </div>

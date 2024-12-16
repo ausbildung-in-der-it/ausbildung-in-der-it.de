@@ -5,8 +5,7 @@ export type LayoutType = 'article' | 'overview';
 export interface LayoutProps {
     children: React.ReactNode;
     title: string;
-    date?: string;
-    readingTime?: string;
+    lastModified?: string;
     blocks: BaseBlock[];
 }
 
