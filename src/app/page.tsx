@@ -1,13 +1,14 @@
-import Link from "next/link";
 import {Input} from "@/components/ui/input";
-import {ArrowRight, ChevronRight} from "lucide-react";
 import { NavigationTile } from "@/components/ui/navigation-tile"
 import { ImageTile } from "@/components/ui/image-tile";
 import BlogArticleGrid from "@/components/BlogArticleGrid";
 import { ActionTile } from "@/components/ui/action-tile"
 import { Heading } from "@/components/ui/typography"
+import { getLatestBlogArticles } from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
+    const latestPosts = await getLatestBlogArticles(3);
+
     return (
         <>
             <div className={"bg-white mt-4 lg:mt-8 rounded-lg border-2 overflow-hidden"}>
@@ -89,7 +90,7 @@ export default function Home() {
             </div>
 
             <Heading variant="section" className="mt-16 mb-3">Neueste Blogartikel</Heading>
-            <BlogArticleGrid />
+            <BlogArticleGrid articles={latestPosts} />
         </>
     );
 }

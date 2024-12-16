@@ -1,8 +1,14 @@
 import { LayoutProps } from './types';
 import TableOfContents from '@/components/blocks/TableOfContents';
-import {Heading} from "@/components/ui/typography";
+import { Heading } from "@/components/ui/typography";
 
-export default function ArticleLayout({ children, title, blocks, date = '14. Dezember 2024', readingTime = '2 Minuten Lesezeit' }: LayoutProps) {
+export default function ArticleLayout({ 
+    children, 
+    title, 
+    blocks, 
+    date = '14. Dezember 2024', 
+    readingTime = '2 Minuten Lesezeit'
+}: LayoutProps) {
     return (
         <main className={"lg:pt-8"}>
             <div className={"max-w-[65ch] mx-auto text-lg mt-8 lg:mt-12"}>
@@ -15,15 +21,9 @@ export default function ArticleLayout({ children, title, blocks, date = '14. Dez
 
             <div className={"lg:mt-3 gap-3"}>
                 <div lang={"de"}
-                     className="mx-auto col-span-4 prose prose-p:leading-relaxed  prose-h2:mb-0 text-black prose-lg break-words hyphens-auto">
+                     className="mx-auto col-span-4 prose prose-p:leading-relaxed prose-h2:mb-0 text-black prose-lg break-words hyphens-auto">
                     {children}
                 </div>
-                {/* <div className="col-span-2 space-y-3">
-                    <div className="bg-white border rounded p-3 sticky top-16">
-                        <h2 className={"text-lg font-bold tracking-tight mb-2"}>Inhaltsverzeichnis</h2>
-                        <TableOfContents blocks={blocks} />
-                    </div>
-                </div> */}
             </div>
         </main>
     );
