@@ -1,14 +1,34 @@
 import { LayoutProps } from './types';
 import TableOfContents from '@/components/blocks/TableOfContents';
 import { Heading } from "@/components/ui/typography";
+import { BaseBlock } from '@/components/blocks/types';
+
+const WORDS_PER_MINUTE = 200;
+
+function countWords(text: string): number {
+    return text.trim().split(/\s+/).length;
+}
+
+function calculateReadingTime(blocks: BaseBlock[]): string {
+    const totalWords = blocks
+        .filter(block => !block.isHidden && (block.type === 'text' || block.type === 'heading'))
+        .reduce((acc, block) => {
+            const text = block.content.text || '';
+            return acc + countWords(text);
+        }, 0);
+
+    const minutes = Math.ceil(totalWords / WORDS_PER_MINUTE);
+    return `${minutes} Minuten Lesezeit`;
+}
 
 export default function ArticleLayout({ 
     children, 
     title, 
     blocks, 
-    date = '14. Dezember 2024', 
-    readingTime = '2 Minuten Lesezeit'
+    date = '14. Dezember 2024'
 }: LayoutProps) {
+    const readingTime = calculateReadingTime(blocks);
+
     return (
         <main className={"lg:pt-8"}>
             <div className={"max-w-[65ch] mx-auto text-lg mt-8 lg:mt-12"}>
